@@ -1,6 +1,7 @@
 
 import { Class } from 'src/modules/class/entities/class.entity';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { OnClass } from 'src/modules/on-class/entities/on-class.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 export enum ActiveTypes {
   ON_GOING = "on_going",
@@ -24,7 +25,10 @@ export class Student {
   @Column({ name: "Active", type: 'enum', enum: ActiveTypes })
   status: string;
 
-  @OneToMany()
-  
+  @OneToMany(
+    ()=> OnClass,
+    (onClass) => onClass.student
+  )
+  onClass?: OnClass[];
 
 }

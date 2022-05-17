@@ -1,5 +1,5 @@
-import { Student } from "src/modules/student/entities/student.entity";
-import { Column, Entity, PrimaryColumn, CreateDateColumn, ManyToMany, JoinColumn } from "typeorm";
+import { OnClass } from "src/modules/on-class/entities/on-class.entity";
+import { Column, Entity, PrimaryColumn, CreateDateColumn, OneToMany } from "typeorm";
 
 @Entity('classes')
 export class Class {
@@ -12,6 +12,9 @@ export class Class {
     @CreateDateColumn({ name: "StartedDate" })
     started_at: Date;
 
-    
-
+    @OneToMany(
+        ()=> OnClass,
+        (onClass) => onClass.class
+    )
+    onClass?: OnClass[];
 }
