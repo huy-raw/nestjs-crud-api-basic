@@ -2,7 +2,7 @@ import { Class } from "src/modules/class/entities/class.entity";
 import { Student } from "src/modules/student/entities/student.entity";
 import { CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('on-class')
+@Entity('onclass')
 export class OnClass {
     @PrimaryGeneratedColumn()
     id: number;

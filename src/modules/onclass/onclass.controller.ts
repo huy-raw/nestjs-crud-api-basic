@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { OnClassService } from './on-class.service';
-import { CreateOnClassDto } from './dto/create-on-class.dto';
-import { UpdateOnClassDto } from './dto/update-on-class.dto';
+import { OnClassService } from './onclass.service';
+import { CreateOnClassDto } from './dto/create-onclass.dto';
+import { UpdateOnClassDto } from './dto/update-onclass.dto';
 
-@Controller('on-class')
+@Controller('onclass')
 export class OnClassController {
   constructor(private readonly onClassService: OnClassService) {}
 

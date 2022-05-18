@@ -7,8 +7,8 @@ import { AppService } from './app.service';
 import {TypeOrmModule} from '@nestjs/typeorm'
 import { Student } from './modules/student/entities/student.entity';
 import { Class } from './modules/class/entities/class.entity';
-import { OnClassModule } from './modules/on-class/on-class.module';
-import { OnClass } from './modules/on-class/entities/on-class.entity';
+import { OnClassModule } from './modules/onclass/onclass.module';
+import { OnClass } from './modules/onclass/entities/onclass.entity';
 import { ClassModule } from './modules/class/class.module';
 //Environment
 

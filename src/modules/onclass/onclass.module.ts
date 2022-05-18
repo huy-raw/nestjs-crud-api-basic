@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { OnClassService } from './on-class.service';
-import { OnClassController } from './on-class.controller';
+import { OnClassService } from './onclass.service';
+import { OnClassController } from './onclass.controller';
 
 @Module({
   controllers: [OnClassController],

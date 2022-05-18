@@ -1,4 +1,4 @@
-import { OnClass } from "src/modules/on-class/entities/on-class.entity";
+import { OnClass } from "src/modules/onclass/entities/onclass.entity";
 import { Column, Entity, PrimaryColumn, CreateDateColumn, OneToMany } from "typeorm";
 
 @Entity('classes')
@@ -9,7 +9,7 @@ export class Class {
     @Column({ name: "ClassName", type: "varchar", length: "255" })
     name: string;
 
-    @CreateDateColumn({ name: "StartedDate" })
+    @CreateDateColumn({ name: "StartedDate"})
     started_at: Date;
 
     @OneToMany(

@@ -8,6 +8,11 @@ import { StudentDTO } from './dto/student.dto';
 export class StudentController {
     constructor(private readonly studentService : StudentService) {}
 
+    @Get('class')
+    async class(@Param() params): Promise<StudentDTO> {
+        return await this.studentService.findStudentByClass();
+    }
+
     @Get()
     async findAll(): Promise<StudentDTO[]> {
         return await this.studentService.findAllStudent();
@@ -33,4 +38,6 @@ export class StudentController {
     async delete(@Param() params){
         return await this.studentService.delete(params.id)
     }
+
+  
 }

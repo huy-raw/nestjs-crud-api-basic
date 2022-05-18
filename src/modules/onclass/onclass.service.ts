@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateOnClassDto } from './dto/create-on-class.dto';
-import { UpdateOnClassDto } from './dto/update-on-class.dto';
+import { CreateOnClassDto } from './dto/create-onclass.dto';
+import { UpdateOnClassDto } from './dto/update-onclass.dto';
 
 @Injectable()
 export class OnClassService {

@@ -1,7 +1,7 @@
 /*
 https://docs.nestjs.com/providers#services
 */
-import { Injectable} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 //Entity
 import { Student } from './entities/student.entity';
@@ -27,7 +27,11 @@ export class StudentService {
 
     async findStudentById(id: number): Promise<Student> {
         try {
-            return await this.studentRepository.findOneById(id)
+            return await this.studentRepository.findOne({
+                where: {
+                    id: id
+                }
+            })
         } catch (err) {
             return err;
         }
@@ -70,4 +74,21 @@ export class StudentService {
             return err;
         }
     }
+
+    async findStudentByClass(): Promise<Student> {
+        try {
+            const check =
+             await this.studentRepository.find({
+                relations: {
+                    onClass: true,
+                }
+            })
+
+            console.log('check : ', check);
+        } catch (err) {
+            return err;
+        }
+    }
+
+
 }
