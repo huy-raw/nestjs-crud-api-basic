@@ -26,5 +26,5 @@ export class OnClass {
     @JoinColumn({
         name:'classID'
     })
-    class?: Student;
+    class?: Class;
 }
