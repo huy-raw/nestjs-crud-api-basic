@@ -17,6 +17,7 @@ export class StudentService {
         private readonly studentRepository: Repository<Student>
     ) { }
 
+   
     async findAllStudent(): Promise<Student[]> {
         try {
             return await this.studentRepository.find({});
@@ -38,14 +39,9 @@ export class StudentService {
     }
 
     async insert(student: StudentDTO): Promise<Student> {
-        const newStudent = new Student();
-
-        Object.keys(student).forEach((key) => {
-            newStudent[key] = student[key];
-        });
-
+        console.log(student);
         try {
-            return await this.studentRepository.save(newStudent);
+            return await this.studentRepository.save(student);
         } catch (err) {
             return err;
         }
@@ -75,22 +71,14 @@ export class StudentService {
         }
     }
 
-    async findStudentByClass(): Promise<Student> {
-        try {
-            const check =
-             await this.studentRepository.find({
-                relations: {
-                    onClass: true,
-                }
-            })
-
-            console.log('check : ', check);
-        } catch (err) {
-            return err;
-        }
+    async findStudentByClass(classID : string): Promise<any> {
+        return await this.studentRepository.createQueryBuilder('student')
+                        .innerJoinAndSelect('student.onClass', 'onClass')
+                        .where('onclass.classID= :params',{params: classID}).getMany()
+                                                                        
     }
 
-    
+
 
 
 }

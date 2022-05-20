@@ -30,7 +30,6 @@ import { ClassModule } from './modules/class/class.module';
     OnClassModule
   ],
   controllers: [AppController],
-  providers: [
-    StudentService, AppService],
+  providers: [AppService],
 })
 export class AppModule { }

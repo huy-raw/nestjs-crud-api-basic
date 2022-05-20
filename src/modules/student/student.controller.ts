@@ -1,4 +1,4 @@
-import { Get, Controller, Put, Post, Delete, Body, Param } from '@nestjs/common';
+import { Get, Controller, Put, Post, Delete, Body, Param, Request, Query } from '@nestjs/common';
 //service
 import {StudentService} from './student.service';
 //DTO
@@ -8,9 +8,16 @@ import { StudentDTO } from './dto/student.dto';
 export class StudentController {
     constructor(private readonly studentService : StudentService) {}
 
-    @Get('class')
-    async class(@Param() params): Promise<StudentDTO> {
-        return await this.studentService.findStudentByClass();
+    @Get('class/:classID')
+    async class(@Param() params): Promise<StudentDTO | any> {
+        console.log(params);
+        return await this.studentService.findStudentByClass(params.classID);
+    }
+
+    @Get('class1')
+    async class1(@Query() query): Promise<StudentDTO | any> {
+        console.log(query);
+        return await this.studentService.findStudentByClass(query.classID);
     }
 
     @Get()
