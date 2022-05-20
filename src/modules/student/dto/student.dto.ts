@@ -1,7 +1,19 @@
+import { IsNumber, IsString } from "class-validator";
+
 export class StudentDTO {
-    readonly id: number;
-    readonly name: string;
-    readonly dob: number;
-    readonly email: string;
-    readonly status: string;
+
+    @IsNumber()
+    id: number;
+
+    @IsString()
+    name: string;
+
+    @IsNumber()
+    dob: number;
+
+    @IsString()
+    email: string;
+
+    @IsString()
+    status: string;
 }

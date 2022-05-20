@@ -1,5 +1,3 @@
-
-import { Class } from 'src/modules/class/entities/class.entity';
 import { OnClass } from 'src/modules/onclass/entities/onclass.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 

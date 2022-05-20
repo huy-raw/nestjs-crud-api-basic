@@ -1,11 +1,12 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ClassService } from './class.service';
+import { ClassDTO } from './dto/class.dto';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
 
 @Controller('class')
 export class ClassController {
-  constructor(private readonly classService: ClassService) {}
+  constructor(private readonly classService: ClassService) { }
 
   @Post()
   create(@Body() createClassDto: CreateClassDto) {
@@ -13,8 +14,8 @@ export class ClassController {
   }
 
   @Get()
-  findAll() {
-    return this.classService.findAll();
+  async findAll(): Promise<ClassDTO[]> {
+    return await this.classService.findAllClass();
   }
 
   @Get(':id')
