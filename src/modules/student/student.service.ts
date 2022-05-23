@@ -15,7 +15,7 @@ export class StudentService {
     constructor(
         @InjectRepository(Student)
         private readonly studentRepository: Repository<Student>
-    ) { }
+    ) {}
 
    
     async findAllStudent(): Promise<Student[]> {
@@ -77,8 +77,6 @@ export class StudentService {
                         .where('onclass.classID= :params',{params: classID}).getMany()
                                                                         
     }
-
-
 
 
 }

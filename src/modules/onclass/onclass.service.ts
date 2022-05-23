@@ -12,18 +12,33 @@ export class OnClassService {
     @InjectRepository(OnClass)
     private readonly onClassRepository: Repository<OnClass>
 
-  ){}
+  ) { }
 
-  create(createOnClassDto: CreateOnClassDto) {
-    return 'This action adds a new onClass';
+  async create(createOnClassDto: CreateOnClassDto) {
+    return await this.onClassRepository.create(createOnClassDto);
   }
 
-  findAll() {
-    return `This action returns all onClass`;
+  async findAll(): Promise<OnClass[]> {
+    try {
+      return await this.onClassRepository.find({});
+    } catch (err) {
+      return err;
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} onClass`;
+  async findOne(classID : string) : Promise<OnClass> {
+    try {
+      return await this.onClassRepository.findOne({
+        where: {
+            
+        },
+        relations: {
+          class: true,
+        }
+      })  
+    } catch (err) {
+      return err;
+    }
   }
 
   update(id: number, updateOnClassDto: UpdateOnClassDto) {

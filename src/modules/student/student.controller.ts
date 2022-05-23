@@ -37,6 +37,7 @@ export class StudentController {
 
     @Put(':id')
     async update(@Body() updatedStudent: StudentDTO, @Param() params): Promise<StudentDTO> {
+        console.log(params);
         const oldStudent = await this.studentService.findStudentById(params.id);
         return await this.studentService.update(oldStudent, updatedStudent)
     }

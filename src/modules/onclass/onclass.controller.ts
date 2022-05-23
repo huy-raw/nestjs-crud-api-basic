@@ -19,7 +19,7 @@ export class OnClassController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.onClassService.findOne(+id);
+    return this.onClassService.findOne(id);
   }
 
   @Patch(':id')

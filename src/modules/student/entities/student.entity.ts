@@ -1,3 +1,4 @@
+import { IsInt } from 'class-validator';
 import { OnClass } from 'src/modules/onclass/entities/onclass.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -9,6 +10,7 @@ export enum ActiveTypes {
 @Entity('students')
 export class Student {
   @PrimaryGeneratedColumn({ name: 'ID' })
+  @IsInt()
   id: number;
 
   @Column({ type: 'varchar', length: 50, nullable: true })
